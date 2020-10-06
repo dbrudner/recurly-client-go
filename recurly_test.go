@@ -76,13 +76,13 @@ func bodyReader(body *string) io.ReadCloser {
 // http.Responses with Recurly metadata
 func mockResponse(req *http.Request, statusCode int, body *string) *http.Response {
 	headers := make(http.Header)
-	headers.Add("Content-Type", "application/json; charset=utf-8")
-	headers.Add("Recurly-Version", "recurly."+APIVersion)
-	headers.Add("X-RateLimit-Limit", "2000")
-	headers.Add("X-RateLimit-Remaining", "1999")
-	headers.Add("X-RateLimit-Reset", "1586203320")
-	headers.Add("X-Request-Id", "msy-1234")
-	headers.Add("Recurly-Total-Records", "100")
+	headers.Add("content-type", "application/json; charset=utf-8")
+	headers.Add("recurly-version", "recurly."+APIVersion)
+	headers.Add("x-ratelimit-limit", "2000")
+	headers.Add("x-ratelimit-remaining", "1999")
+	headers.Add("x-ratelimit-reset", "1586203320")
+	headers.Add("x-request-id", "msy-1234")
+	headers.Add("recurly-total-records", "100")
 	return &http.Response{
 		StatusCode: statusCode,
 		Body:       bodyReader(body),
